@@ -15,4 +15,11 @@ class Student(
     fun addSubject(subject: Subject) {
         _subjects.add(subject)
     }
+
+    fun rename(name: String) {
+        require(name.isNotBlank()) {
+            "이름을 공백으로 변경할 수 없습니다."
+        }
+        this.name = name
+    }
 }

@@ -14,6 +14,14 @@ class Professor(
     val students: List<Student>
         get() = _students
 
+
+    fun removeStudent(studentId: Long) {
+        val student = _students.firstOrNull { it.id == studentId }
+            ?: throw IllegalArgumentException("아이디가 '${studentId}'인 학생을 찾을 수 없습니다.")
+
+        removeStudent(student)
+    }
+
     fun removeStudent(student: Student) = require(_students.remove(student)) {
         "'${student.name}' 학생을 찾을 수 없습니다."
     }

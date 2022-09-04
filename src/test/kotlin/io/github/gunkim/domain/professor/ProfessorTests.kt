@@ -9,7 +9,7 @@ class ProfessorTests {
     @Test
     fun `학생을 제외한다`() {
         val student = Student(name = "홍길동")
-        val professor = Professor(name = "김길동", students = mutableListOf(student))
+        val professor = Professor(name = "김길동", students = listOf(student))
             .apply { removeStudent(student) }
 
         assertThat(professor.students).hasSize(0)
@@ -26,7 +26,7 @@ class ProfessorTests {
     @Test
     fun `아이디로 학생을 제외한다`() {
         val student = Student(id = 1, name = "홍길동")
-        val professor = Professor(name = "김길동", students = mutableListOf(student))
+        val professor = Professor(name = "김길동", students = listOf(student))
             .apply { removeStudent(1) }
 
         assertThat(professor.students).hasSize(0)

@@ -7,7 +7,8 @@ class Professor(
     name: String,
     students: List<Student> = listOf(),
 ) {
-    var name: String = name
+    var name = name
+        private set
 
     private val _students: MutableList<Student> = students.toMutableList()
     val students: List<Student>

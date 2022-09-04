@@ -3,7 +3,7 @@ package io.github.gunkim.domain.student
 class Student(
     val id: Long? = null,
     name: String,
-    subjects: MutableList<Subject> = mutableListOf(),
+    subjects: List<Subject> = listOf(),
 ) {
     var name: String = name
         private set

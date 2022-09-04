@@ -32,4 +32,8 @@ dependencies {
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
     testImplementation("org.assertj:assertj-core:3.23.1")
+    implementation("org.jetbrains.exposed:exposed-core:0.39.2")
+    runtimeOnly("org.jetbrains.exposed:exposed-jdbc:0.39.2")
+    implementation("org.jetbrains.exposed:exposed-dao:0.39.2")
+    runtimeOnly("com.h2database:h2:2.1.214")
 }

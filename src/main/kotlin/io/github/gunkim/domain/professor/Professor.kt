@@ -32,4 +32,8 @@ class Professor(
         }
         this.name = name
     }
+
+    fun addStudent(student: Student) {
+        _students.add(student)
+    }
 }

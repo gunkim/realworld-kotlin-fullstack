@@ -55,4 +55,12 @@ class ProfessorTests {
         assertThrows<IllegalArgumentException> { professor.rename("      ") }
             .apply { assertThat(message).isEqualTo("이름을 공백으로 변경할 수 없습니다.") }
     }
+
+    @Test
+    fun `학생을 추가한다`() {
+        val professor = Professor(name = "김길동")
+            .apply { addStudent(Student(name = "둘리")) }
+
+        assertThat(professor.students).hasSize(1)
+    }
 }

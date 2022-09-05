@@ -23,12 +23,10 @@ class Student(
         this.name = name
     }
 
-    fun removeSubject(subjectId: Long): Boolean {
-        return _subjects
-            .find { it.id == subjectId }
-            ?.let { removeSubject(it) }
-            ?: false
-    }
+    fun changeSubjectScore(subjectId: Long, score: Int) {
+        val subject = subjects.firstOrNull { it.id == subjectId }
+            ?: throw IllegalArgumentException("해당 과목이 존재하지 않습니다.")
 
-    fun removeSubject(subject: Subject): Boolean = _subjects.remove(subject)
+        subject.changeScore(score)
+    }
 }

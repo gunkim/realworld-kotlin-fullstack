@@ -37,23 +37,25 @@ class StudentTests {
     }
 
     @Test
-    fun `식별자로 과목을 제거한다`() {
-        val student = Student(name = "애기거니", subjects = listOf(Subject(id = 1, type = SubjectType.Math)))
-
-        val isRemove = student.removeSubject(1)
-        assertThat(isRemove).isTrue
-        assertThat(student.subjects).hasSize(0)
-
+    fun `과목의 점수를 변경한다`() {
+        val student = Student(
+            name = "애기거니", subjects = listOf(
+                Subject(
+                    id = 1,
+                    type = SubjectType.Math,
+                    score = 12
+                )
+            )
+        )
+        student.changeSubjectScore(1, 34)
+        assertThat(student.subjects[0].score).isEqualTo(34)
     }
 
     @Test
-    fun `과목을 제거한다`() {
-        val subject = Subject(id = 1, type = SubjectType.Math)
-        val student = Student(name = "애기거니", subjects = listOf(subject))
+    fun `과목이 없을 경우 점수를 변경할 수 없다`() {
+        val student = Student(name = "애기거니")
 
-        val isRemove = student.removeSubject(subject)
-
-        assertThat(isRemove).isTrue
-        assertThat(student.subjects).hasSize(0)
+        assertThrows<IllegalArgumentException> { student.changeSubjectScore(1, 34) }
+            .apply { assertThat(message).isEqualTo("해당 과목이 존재하지 않습니다.") }
     }
 }

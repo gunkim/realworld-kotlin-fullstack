@@ -22,4 +22,13 @@ class Student(
         }
         this.name = name
     }
+
+    fun removeSubject(subjectId: Long): Boolean {
+        return _subjects
+            .find { it.id == subjectId }
+            ?.let { removeSubject(it) }
+            ?: false
+    }
+
+    fun removeSubject(subject: Subject): Boolean = _subjects.remove(subject)
 }

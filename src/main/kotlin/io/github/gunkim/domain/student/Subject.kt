@@ -3,7 +3,7 @@ package io.github.gunkim.domain.student
 class Subject(
     val id: Long? = null,
     val type: SubjectType,
-    score: Int,
+    score: Int = 0,
 ) {
     init {
         require(score >= 0) {

@@ -58,4 +58,12 @@ class StudentTests {
         assertThrows<IllegalArgumentException> { student.changeSubjectScore(1, 34) }
             .apply { assertThat(message).isEqualTo("해당 과목이 존재하지 않습니다.") }
     }
+
+    @Test
+    fun `과목을 삭제한다`() {
+        val student = Student(name = "애기거니", subjects = listOf(Subject(id = 1, type = SubjectType.Math)))
+
+        student.removeSubject(1)
+        assertThat(student.subjects).hasSize(0)
+    }
 }

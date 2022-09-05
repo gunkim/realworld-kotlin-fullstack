@@ -29,4 +29,8 @@ class Student(
 
         subject.changeScore(score)
     }
+
+    fun removeSubject(subjectId: Long) {
+        _subjects.removeIf { it.id == subjectId }
+    }
 }

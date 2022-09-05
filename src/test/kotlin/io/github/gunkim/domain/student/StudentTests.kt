@@ -35,4 +35,25 @@ class StudentTests {
         assertThrows<IllegalArgumentException> { student.rename("      ") }
             .apply { assertThat(message).isEqualTo("이름을 공백으로 변경할 수 없습니다.") }
     }
+
+    @Test
+    fun `식별자로 과목을 제거한다`() {
+        val student = Student(name = "애기거니", subjects = listOf(Subject(id = 1, type = SubjectType.Math)))
+
+        val isRemove = student.removeSubject(1)
+        assertThat(isRemove).isTrue
+        assertThat(student.subjects).hasSize(0)
+
+    }
+
+    @Test
+    fun `과목을 제거한다`() {
+        val subject = Subject(id = 1, type = SubjectType.Math)
+        val student = Student(name = "애기거니", subjects = listOf(subject))
+
+        val isRemove = student.removeSubject(subject)
+
+        assertThat(isRemove).isTrue
+        assertThat(student.subjects).hasSize(0)
+    }
 }

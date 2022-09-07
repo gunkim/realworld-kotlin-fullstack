@@ -8,3 +8,5 @@
 [![GitHub stars](https://img.shields.io/github/stars/gunkim/realworld-kotlin-fullstack)](https://github.com/gunkim/realworld-kotlin-fullstack)
 [![GitHub issues](https://img.shields.io/github/issues/gunkim/realworld-kotlin-fullstack)](https://github.com/gunkim/realworld-kotlin-fullstack/issues)
 [![GitHub forks](https://img.shields.io/github/forks/gunkim/realworld-kotlin-fullstack)](https://github.com/gunkim/realworld-kotlin-fullstack/fork)
+
+kotlin, ktor & exposed 사용해보기 위한 간단 클린 아키텍처 연습 프로젝트
